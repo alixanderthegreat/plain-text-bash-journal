@@ -35,7 +35,7 @@ Enter your choice:
 Entries are added to the journal.txt in a `date,entry` fashion. Dates are in YYYY-mm-dd-HH:MM:SS format and each `entry` is added on the same line. This makes it really easy to sort and sort-merge with disparate editions of your `journal.txt`.
 
 ### Review 
-Entries are in chronological order, which makes it really convenient to review the last... Say... 7 or 100 entries. It will lay out in chronological order. Like a journal would. 
+Entries are in chronological order, which makes it really convenient to review the last... Say... 7, or 100 entries... and `journal` will lay out in chronological order. Like a journal would. 
 
 ### Search
 This is, in my opinion, the coolest feature of a journal.txt. Wanna know something? Just search the keywords you want to look into and `journal`  will search for them in the text.
