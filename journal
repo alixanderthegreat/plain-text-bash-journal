@@ -1,0 +1,120 @@
+#!/bin/bash
+journal_dir="$HOME/journal"
+journal_file="$journal_dir/journal.txt"
+if [ ! -d "$HOME/journal" ]; then
+  mkdir "$HOME/journal"
+fi
+
+if [ ! -f "$journal_file" ]; then
+  touch "$journal_file"
+  echo "date,entry" >>  $journal_file
+fi
+
+while true; do
+now=$(date +%Y-%m-%d-%H:%M:%S)
+  echo ""
+  echo $now
+  echo ""
+  echo "Journal"
+  echo "1. Add"
+  echo "2. Review"
+  echo "3. Search"
+  echo "4. Backup"
+  echo "5. Analysis"
+  echo "6. Exit"
+  echo ""
+  read -p "Enter your choice: " choice
+
+  case $choice in
+    1) # Add
+      clear
+      echo ""
+      echo "Enter your journal entry:"
+      echo ""
+      read entry
+      echo "$now,$entry" >> $journal_file
+      echo ""
+      echo "Journal entry added successfully."
+      echo ""
+      read -p "[Enter] to return to the menu"
+      clear
+      ;;
+    2) # Review
+      clear
+      read -p "Number of entries to look back: " number
+      echo ""
+      echo "Last $number Entries:"
+      tail -$number $journal_file
+      echo ""
+      read -p "[Enter] to return to the menu"
+      clear
+      ;;
+
+    3) # Search
+      clear
+      echo ""
+      read -p "Keywords to search (separated by spaces): " -a keywords
+      echo ""
+        for keyword in "${keywords[@]}"; do
+        echo "Search results for keyword: $keyword"
+        grep "$keyword" $journal_file
+        echo ""
+        done
+      read -p "[Enter] to return to the menu"
+      clear
+      ;;
+
+    4) # Backup
+      clear
+      echo ""
+      backup_file=$journal_file.$now.bak
+      echo $journal_file >> "$backup_file"
+      echo "Journal entries backed up to $backup_file"
+      read -p "[Enter] to return to the menu"
+      clear
+       ;;
+    5) # Stats
+      clear
+      echo ""
+      echo "1. Number of journal entries by month"
+      echo "2. Frequency of keywords in journal entries"
+      echo ""
+      read -p "Enter your choice: " stat_choice
+      case $stat_choice in
+        1)
+          clear
+          echo ""
+          echo "Number of journal entries by month:"
+          awk -F, '{print $1}' $journal_file | cut -d/ -f2 | sort | uniq -c
+          echo ""
+          read -p "[Enter] to return to the menu"
+          clear
+          ;;
+        2)
+          clear
+          echo ""
+          echo "Frequency of keywords"
+          echo ""
+          read -p "Enter keywords separated by spaces: " keywords
+          for keyword in $keywords; do
+            echo "$keyword: "
+            grep $keyword $journal_file | wc -l
+          done
+          echo ""
+          read -p "[Enter] to return to the menu"
+          clear
+          ;;
+        *)
+          echo "Invalid choice. Try again."
+          ;;
+      esac
+      ;;
+    6) # exit
+      clear
+      exit
+      ;;
+    *)
+      echo "Invalid choice. Try again."
+      ;;
+  esac
+done
