@@ -44,5 +44,5 @@ This is, in my opinion, the coolest feature of a journal.txt. Wanna know somethi
 This is a rudimentary backup system. Basically, each backup gets timestamped and is saved in the same folder as the journal.txt. 
 
 ### Analysis
-Basic for the time being, but analysis can be done of the number of entries per month and word count. For now, that seems interesting.
+Basic analysis for the time being, but all analysis is done locally and is never sent to a server for analysis. For now the extent of the analysis is the number of entries per month and the count of a given word.
 
