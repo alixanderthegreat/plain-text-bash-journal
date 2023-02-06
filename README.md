@@ -36,7 +36,7 @@ Entries are added to the journal.txt in a `date,entry` fashion. Dates are in YYY
 Entries are in chronological order, which makes it really convenient to review the last... Say... 7 or 100 entries. It will lay out in chronological order. Like a journal would. 
 
 ## Search
-This is, in my opinion, the coolest feature to having a journal.txt. Wanna know something, just search the keywords you want to look into and it will search for them in the text.
+This is, in my opinion, the coolest feature of a journal.txt. Wanna know something? Just search the keywords you want to look into and `journal`  will search for them in the text.
 
 ## Backup
 This is a rudimentary backup system. Basically, each backup gets timestamped and is saved in the same folder as the journal.txt. 
