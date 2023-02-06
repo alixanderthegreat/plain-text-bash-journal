@@ -1,6 +1,6 @@
 # plain-text-bash-journal
 
-Highly hackable, and extremely fast, the basic premise for `journal` is a privacy preserving, future-proofed and searchable journal entirely powered by BASH. So, it just works and it will practically always will.
+Highly hackable, and extremely fast, the basic premise for `journal` is a privacy preserving, future-proofed and searchable journal entirely powered by BASH. So, it just works and it practically always will.
 
 # Install
 ```
